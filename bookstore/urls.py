@@ -24,12 +24,12 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+    # App APIs
     path('api/accounts/', include('accounts.urls')),
-    path('api/', include('books.urls')),
+    path('api/books/', include('books.urls')),
     path('api/orders/', include('orders.urls')),
 
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # JWT Auth
+    path('api/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
-
-
